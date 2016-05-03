@@ -57,8 +57,9 @@ Check if provided URL or path is a video. If video, returns video extension else
 { boolean } { false by default. if set to true, displays operation messages }
 
 Ex:
-$path = '/var/www/html/sample.html';
-is_video( $path, true );
+
+    $path = '/var/www/html/sample.html';
+    is_video( $path, true );
 
 ### is_audio()
 Checks if provided link is audio. If audio, returns audio format else returns false
@@ -70,20 +71,10 @@ Checks if provided link is audio. If audio, returns audio format else returns fa
 { boolean } { false by default. if set to true, displays operation messages }
 
 Ex:
-	$path = 'sample.mp4';
-	is_audio( $path, true );
 
-### got_ffmpeg()
-Check if FFMPEG is installed on server
-
-`$path `
-Specify direct path to ffmpeg
-
-`$msg`
-{ boolean } { false by default. shows errors if true }
-
-Ex:
-	got_ffmpeg( false, true );
+    $path = 'sample.mp4';
+    is_audio( $path, true );
+    got_ffmpeg( false, true );
 
 ### get_any_video()
 Download any video from internet using YouTube-dl
@@ -101,9 +92,10 @@ Download any video from internet using YouTube-dl
 { boolean } { false by default. Shows errors }
 
 Ex:
-	$url = 'test.mp4';
-	$output_path = __DIR__;
-	get_any_video( $url, $output_path, false, true );
+
+    $url = 'test.mp4';
+    $output_path = __DIR__;
+    get_any_video( $url, $output_path, false, true );
 
 ### is_photo()
 Check if  a filepath or URL is a photo or not
@@ -115,8 +107,9 @@ Check if  a filepath or URL is a photo or not
 { boolean } { shows errors if true }
 
 Ex:
-	$filepath = 'main.jpg';
-	is_photo( $filepath, true );
+
+    $filepath = 'main.jpg';
+    is_photo( $filepath, true );
 
 ### is_type()
 Checks if a provided file matches provided extension
@@ -128,8 +121,8 @@ Checks if a provided file matches provided extension
 { string } { file extension to match against }
 
 Ex:
-	$filepath = 'main.py';
-	is_photo( $filepath, 'py' );
+    $filepath = 'main.py';
+    is_photo( $filepath, 'py' );
 
 ### count_files()
 Counts file with certain extension in given directory
@@ -141,9 +134,10 @@ Counts file with certain extension in given directory
 { string } { extension to count files }
 
 Ex:
-	$path = __DIR__;
-	$ext = 'php';
-	count_files( $path, $ext );
+
+    $path = __DIR__;
+    $ext = 'php';
+    count_files( $path, $ext );
 
 ### perm_check()
 Checks if a directory has permissions
@@ -152,8 +146,9 @@ Checks if a directory has permissions
 { string } { file to check }
 
 Ex:
-$filepath = __DIR__.'/wolf.png';
-perm_check( $filepath );
+    
+    $filepath = __DIR__.'/wolf.png';
+    perm_check( $filepath );
 
 ### force_perm()
 Checks if a file has certain permissions, if not forcefully adds given permissions
@@ -169,9 +164,10 @@ Checks if a file has certain permissions, if not forcefully adds given permissio
 
 
 Ex:
-	$path = __DIR__.'/files';
-	$permissions = '0777';
-	force_perm( $path, $permissions, true);
+
+    $path = __DIR__.'/files';
+    $permissions = '0777';
+    force_perm( $path, $permissions, true);
 
 ### born_perm()
 Creates a new file (php, html, css, text etc) and gives it given permissions
@@ -189,11 +185,12 @@ Creates a new file (php, html, css, text etc) and gives it given permissions
 { integer } { permissions to give to the file }
 
 Ex:
-	$path = __DIR__.'/files';
-	$name = 'wolf_magic.me';
-	$content = 'it works just fine';
-	$permissions = '0666';
-	born_perm ( $path, $name, $content, $permissions );
+
+    $path = __DIR__.'/files';
+    $name = 'wolf_magic.me';
+    $content = 'it works just fine';
+    $permissions = '0666';
+    born_perm ( $path, $name, $content, $permissions );
 
 ### rand_string()
 Generates a random string of provided length
@@ -202,7 +199,8 @@ Generates a random string of provided length
 { integer } { 10 by default. length for random string }
 
 Ex:
-	rand_string( 5 );
+
+    rand_string( 5 );
 
 ### build_log()
 Builds log file for a video after conversion
@@ -220,11 +218,12 @@ Builds log file for a video after conversion
 { boolean } { false by default, prints error messages }
 
 Ex:
-	$filepath = 'logdata.txt';
-	$logData = 'this is sample log data here';
-	$oright = true;
-	$msg = true;
-	build_log( $filepath, $logData, $oright, $msg );
+
+    $filepath = 'logdata.txt';
+    $logData = 'this is sample log data here';
+    $oright = true;
+    $msg = true;
+    build_log( $filepath, $logData, $oright, $msg );
 
 ### get_video_size()
 Gets size of provided video
@@ -236,8 +235,9 @@ Gets size of provided video
 { boolean } { false by default. if set to true, displays operation messages }
 
 Ex:
-	$video_path = 'sample.mp4';
-	get_video_size( $video_path, true);
+
+    $video_path = 'sample.mp4';
+    get_video_size( $video_path, true);
 
 ### media_detailer()
 Gets all possible details of a media file (video, audio, photo)
@@ -255,11 +255,12 @@ Gets all possible details of a media file (video, audio, photo)
 { boolean } { false by default, prints error messages }
 
 Ex:
-	$media = 'test.mp4'l;
-	$oneOnly = false;
-	$json = false;
-	$msg = true;
-	media_detailer( $media, $oneOnly, $json, $msg );
+
+    $media = 'test.mp4'l;
+    $oneOnly = false;
+    $json = false;
+    $msg = true;
+    media_detailer( $media, $oneOnly, $json, $msg );
 
 Ex 2 [ get duration only ]:
 $media = 'test.mp4'l;
@@ -285,7 +286,8 @@ Check what is max resolution possible conversion for a video
 { integer } { Height of video to be checked }
 
 Ex:
-	can_convert(510);
+
+    can_convert(510);
 
 convert_video()
 Convert a video from one format to another
