@@ -25,9 +25,10 @@ Command that you would like to execute
 False by default, return full output of command if true
 
 Ex:
-```11$cmd  = 'php --version';
-$out = true;
-cmd( $cmd, $out );```
+
+    $cmd  = 'php --version';
+    $out = true;
+    cmd( $cmd, $out );
 
 pex()
 Pretty print an array
