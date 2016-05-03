@@ -40,7 +40,6 @@ Array to be dumped out
 False by default, exits right after dumping
 
 Ex:
-
     $array = array( 
                 'Apple' => 'steve_jobs', 
                'tunepk' => 'arslan_hassan',
@@ -58,8 +57,8 @@ Check if provided URL or path is a video. If video, returns video extension else
 
 Ex:
 
-    $path = '/var/www/html/sample.html';
-    is_video( $path, true );
+	$path = '/var/www/html/sample.html';
+	is_video( $path, true );
 
 ### is_audio()
 Checks if provided link is audio. If audio, returns audio format else returns false
@@ -71,9 +70,20 @@ Checks if provided link is audio. If audio, returns audio format else returns fa
 { boolean } { false by default. if set to true, displays operation messages }
 
 Ex:
-
     $path = 'sample.mp4';
     is_audio( $path, true );
+
+### got_ffmpeg()
+Check if FFMPEG is installed on server
+
+`$path `
+Specify direct path to ffmpeg
+
+`$msg`
+{ boolean } { false by default. shows errors if true }
+
+Ex:
+
     got_ffmpeg( false, true );
 
 ### get_any_video()
@@ -289,395 +299,407 @@ Ex:
 
     can_convert(510);
 
-convert_video()
+### convert_video()
 Convert a video from one format to another
 
-$video_path
+`$video_path`
 { string } { Path to your video or direct URL to video }
 
-$out_path
+`$out_path`
 { string } { Directory to save output file }
 
-$out_format
+`$out_format`
 { string } { Format to convert your video to }
 
-$msg 
+`$msg `
 { boolean } { False by default,  displays error messages if true }
 
-Ex: 
-$video_path = 'sample.mp4';
-$out_path = '/var/www/html';
-$out_format = 'mp4';
-convert_video( $video_path, $out_path, $out_format, true );
+Ex:
 
-merge_videos()
+    $video_path = 'sample.mp4';
+    $out_path = '/var/www/html';
+    $out_format = 'mp4';
+    convert_video( $video_path, $out_path, $out_format, true );
+
+### merge_videos()
 Merge two videos together and make one video 
 
-$vid1
+`$vid1`
 { string } { First video }
 
-$vid2
+`$vid2`
 { string } { Second video }
 
-$output_path
+`$output_path`
 { string } { Directory to save converted file to }
 
-$format 
+`$format `
 { string } { Format to convert output file to }
 
-$msg
+`$msg`
 { boolean } { False by default, displays error messages if true }
 
 Ex:
-$vid1 = 'sample.mp4';
-$vid2 = 'test.mp4';
-$output_path = '/var/www/html';
-$format = 'mp4';
-merge_videos( $vid1, $vid2, $output_path, $format, true );
 
-multi_vmerge()
+    $vid1 = 'sample.mp4';
+    $vid2 = 'test.mp4';
+    $output_path = '/var/www/html';
+    $format = 'mp4';
+    merge_videos( $vid1, $vid2, $output_path, $format, true );
+
+### multi_vmerge()
 Combines two videos using FFMPEG
 
-$videos_array
+`$videos_array`
 { array } { array of videos to be merged }
 
-$output_path
+`$output_path`
 { string } { where to save converted file }
 
-$format
+`$format`
 { string } { file format to save as (Must be video) }
 
 Ex:
-$videos_array = array(
-                                   'small.mp4',
-                                   'sample.mp4',
-                                   'test.mp4'     
-                              );
-$output_path = __DIR__.'/files';
-$format = 'wmv';
-$msg = true;
-multi_vmerge( $videos_array, $output_path, $format, $msg );
 
-split_video()
+    $videos_array = array(
+                   'small.mp4',
+                   'sample.mp4',
+                   'test.mp4'     
+              );
+    $output_path = __DIR__.'/files';
+    $format = 'wmv';
+    $msg = true;
+    multi_vmerge( $videos_array, $output_path, $format, $msg );
+
+### split_video()
 Cuts a part of video as given parameters by user
 
- $video
+`$video`
  { string } { link or path of video }
 
-$start
+`$start`
  { integer } { point to start cutting }
 
-$length
+`$length`
  { integer } { time from start point to end point }
 
-$output_path
+`$output_path`
  { string } { where to save output video }
 
-$msg
+`$msg`
  { boolean } { false by default. if set to true, displays operation messages }
 
-multi_splits()
-xSplits()
-xSecSplit()
-get_audio_only()
+### multi_splits()
+### xSplits()
+### xSecSplit()
+### get_audio_only()
 Extracts audio from a video without downloading or converting that it
 
-$video_path
-{ string } { link to video }
+`$video_path`
+{ string } { link to video `}`
 
-$output_path
+`$output_path`
 { string } { directory path to save output audio }
 
-$audio_format
+`$audio_format`
 { string } { format to store extracted audio }
 
-$bitrate
+`$bitrate`
 { integer } { 128 by default. Effects audio quality }
 
-$msg
+`$msg`
 { boolean } { false by default. if set to true, displays operation messages }
 
 Ex:
-$video_path = 'test.mp4';
-$output_path = '/var/www/html';
-$audio_format = 'mp3';
-$bitrate = '128';
-get_audio_only( $video_path, $output_path, $audio_format = '.mp3', $bitrate = 128, true );
 
-get_video_only()
+    $video_path = 'test.mp4';
+    $output_path = '/var/www/html';
+    $audio_format = 'mp3';
+    $bitrate = '128';
+    get_audio_only( $video_path, $output_path, $audio_format = '.mp3', $bitrate = 128, true );
+
+### get_video_only()
 Extracts video from a video while muting its audio completely
 
-$video_path 
+`$video_path `
 { string } { link to video }
 
- $output_path 
+`$output_path `
 { string } { place to save output video [dir path only] }
 
-$msg
+`$msg`
 { boolean } { false by default. if set to true, displays operation messages }
 
 Ex:
-$video_path = 'test.mp4';
-$output_path = '/var/www/html';
-get_video_only( $video_path, $output_path, false);
 
-resize_video()
+    $video_path = 'test.mp4';
+    $output_path = '/var/www/html';
+    get_video_only( $video_path, $output_path, false);
+
+### resize_video()
 Resizez a video according to parameters provided by users
 
-$video_path
+`$video_path`
 { string } { Path to your video or direct URL to video }
 
-$out_path
+`$out_path`
 { string } { Directory to save output file }
 
-$out_format
+`$out_format`
 { string } { Format to convert your video to }
 
-$resize_to
+`$resize_to`
 { string } { resizing size e.g (640x480) }
 
-$msg 
+`$msg `
 { boolean } { False by default,  displays error messages if true }
 
 
 Ex:
-$video_path = 'sample.mp4';
-$output_path= '/var/www/html';
-$output_format= 'mp4';
-resize_video( $video_path, $output_path, $resize_to = '320x240', $output_format, true);
 
-conv_1080()
+    $video_path = 'sample.mp4';
+    $output_path= '/var/www/html';
+    $output_format= 'mp4';
+    resize_video( $video_path, $output_path, $resize_to = '320x240', $output_format, true);
+
+### conv_1080()
 Converts a video to 1080p video quality
 
-$video_path 
+`$video_path `
 { string } { Link or path to video }
 
-$output_path 
+`$output_path `
 { string } { Direcotry path where file is to be saved }
 
-$output_format 
+`$output_format `
 { string } { Format to convert videos in }
 
-$msg
+`$msg`
 { boolean } { false by default. Shows errors }
 
 Ex:
-$video_path = 'sample.mp4';
-$output_path= '/var/www/html';
-$output_format= 'mp4';
-conv_1080( $video_path, $output_path, $output_format, true );
 
-conv_720()
+    $video_path = 'sample.mp4';
+    $output_path= '/var/www/html';
+    $output_format= 'mp4';
+    conv_1080( $video_path, $output_path, $output_format, true );
+
+### conv_720()
 Converts a video to 720p video quality
 
-$video_path 
+`$video_path `
 { string } { Link or path to video }
 
-$output_path 
+`$output_path `
 { string } { Direcotry path where file is to be saved }
 
-$output_format 
+`$output_format `
 { string } { Format to convert videos in }
 
-$msg
+`$msg`
 { boolean } { false by default. Shows errors }
 
 Ex:
-$video_path = 'sample.mp4';
-$output_path= '/var/www/html';
-$output_format= 'mp4';
-conv_720( $video_path, $output_path, $output_format, true );
 
-conv_480()
+    $video_path = 'sample.mp4';
+    $output_path= '/var/www/html';
+    $output_format= 'mp4';
+    conv_720( $video_path, $output_path, $output_format, true );
+
+### conv_480()
 Converts a video to 480p video quality
 
-$video_path 
+`$video_path `
 { string } { Link or path to video }
 
-$output_path 
+`$output_path `
 { string } { Direcotry path where file is to be saved }
 
-$output_format 
+`$output_format `
 { string } { Format to convert videos in }
 
-$msg
+`$msg`
 { boolean } { false by default. Shows errors }
 
 Ex:
-$video_path = 'sample.mp4';
-$output_path= '/var/www/html';
-$output_format= 'mp4';
-conv_480( $video_path, $output_path, $output_format, true );
 
-conv_360()
+    $video_path = 'sample.mp4';
+    $output_path= '/var/www/html';
+    $output_format= 'mp4';
+    conv_480( $video_path, $output_path, $output_format, true );
+
+### conv_360()
 Converts a video to 360p video quality
 
-$video_path 
+`$video_path `
 { string } { Link or path to video }
 
-$output_path 
+`$output_path `
 { string } { Direcotry path where file is to be saved }
 
-$output_format 
+`$output_format `
 { string } { Format to convert videos in }
 
-$msg
+`$msg`
 { boolean } { false by default. Shows errors }
 
 Ex:
-$video_path = 'sample.mp4';
-$output_path= '/var/www/html';
-$output_format= 'mp4';
-conv_360( $video_path, $output_path, $output_format, true );
 
-conv_240()
+    $video_path = 'sample.mp4';
+    $output_path= '/var/www/html';
+    $output_format= 'mp4';
+    conv_360( $video_path, $output_path, $output_format, true );
+
+### conv_240()
 Converts a video to 240p video quality
 
-$video_path 
+`$video_path `
 { string } { Link or path to video }
 
-$output_path 
+`$output_path `
 { string } { Direcotry path where file is to be saved }
 
-$output_format 
+`$output_format `
 { string } { Format to convert videos in }
 
-$msg
+`$msg`
 { boolean } { false by default. Shows errors }
 
 Ex:
-$video_path = 'sample.mp4';
-$output_path= '/var/www/html';
-$output_format= 'mp4';
-conv_240( $video_path, $output_path, $output_format, true );
 
-conv_all()
+    $video_path = 'sample.mp4';
+    $output_path= '/var/www/html';
+    $output_format= 'mp4';
+    conv_240( $video_path, $output_path, $output_format, true );
+
+### conv_all()
 Converts a video to all video qualities
 
-$video_path 
+`$video_path `
 { string } { Link or path to video }
 
-$output_path 
+`$output_path `
 { string } { Direcotry path where file is to be saved }
 
-$output_format 
+`$output_format `
 { string } { Format to convert videos in }
 
-$msg
+`$msg`
 { boolean } { false by default. Shows errors }
 
 Ex:
-$video_path = 'sample.mp4';
-$output_path= '/var/www/html';
-$output_format= 'mp4';
-conv_all( $video_path, $output_path, $output_format, true );
+
+    $video_path = 'sample.mp4';
+    $output_path= '/var/www/html';
+    $output_format= 'mp4';
+    conv_all( $video_path, $output_path, $output_format, true );
 
 
-throw_thumb()
-xSecThumbs()
-xThumbs()
-flip()
-flip_horizental()
-flip_vertical()
-flip_both()
-grayscale()
-grayscale_at()
-split_screen()
-speedup_video()
-slowdown_video()
-video_speed()
-add_watermark()
-watermark_topleft()
-watermark_topright()
-watermark_bottomleft()
-watermark_bottomright()
-watermark_center()
-mute_at()
-add_preroll()
-add_midroll()
-add_postroll()
-add_postpre_roll()
-add_allrolls()
-reverse_video()
-multi_vreverse()
-grid_four()
-extract_waveform()
-hardcode_subtitles()
-conv_iconia()
-audiox_merge()
-convert_mp4()
-convert_mov()
-convert_wmv()
-conv_ipad()
-conv_ipad3()
-conv_kindle_fire()
-add_magic()
-convert_photo()
-add_text()
-text_image()
-rotate_photo()
-flip_photo()
-flip_photo_vertical()
-flip_photo_horizental()
-grayscale_photo()
-navy()
-fire()
-green_fire()
-pink_fire()
-orange_fire()
-black_fire()
-hex_fire()
-rgba()
-sepia()
-invert()
-blur_image()
-oil_paint()
-charcoal()
-emboss()
-add_toaster()
-add_gotham()
-add_kelvin()
-add_lomo()
-add_nashville()
-edge_detect()
-shade()
-double_channel()
-make_circled()
-is_youtube()
-youtube_search()
-youtube_search_process()
-youtube_channel_search()
-youtube_related()
-youtube_play()
-youtube_content_details()
-youtube_duration()
-youtube_views()
-youtube_likes()
-youtube_detailer()
-youtube_chan_byname()
-youtube_chan_byvideo()
-youtube_quality()
-youtube_thumbs()
-is_youtube_hd()
-get_youtube_id()
-conv_youtube_time()
-youtube_channel()
-youtube_channel_process()
-youtube_cat_vids()
-dailymotion_search()
-dailymotion_play()
-dailymotion_search_process()
-dailymotion_video_details()
-vimeo_search()
-vimeo_search_process()
-vimeo_process_play()
-vimeo_play()
-yahoo_search()
-yahoo_process_search()
-valid_yahoo_site()
-yahoo_valid_dur()
-yahoo_valid_quality()
-yahoo_mold_thumb()
-scld_search()
-scld_track_details()
-scld_process_search()
+### throw_thumb()
+### xSecThumbs()
+### xThumbs()
+### flip()
+### flip_horizental()
+### flip_vertical()
+### flip_both()
+### grayscale()
+### grayscale_at()
+### split_screen()
+### speedup_video()
+### slowdown_video()
+### video_speed()
+### add_watermark()
+### watermark_topleft()
+### watermark_topright()
+### watermark_bottomleft()
+### watermark_bottomright()
+### watermark_center()
+### mute_at()
+### add_preroll()
+### add_midroll()
+### add_postroll()
+### add_postpre_roll()
+### add_allrolls()
+### reverse_video()
+### multi_vreverse()
+### grid_four()
+### extract_waveform()
+### hardcode_subtitles()
+### conv_iconia()
+### audiox_merge()
+### convert_mp4()
+### convert_mov()
+### convert_wmv()
+### conv_ipad()
+### conv_ipad3()
+### conv_kindle_fire()
+### add_magic()
+### convert_photo()
+### add_text()
+### text_image()
+### rotate_photo()
+### flip_photo()
+### flip_photo_vertical()
+### flip_photo_horizental()
+### grayscale_photo()
+### navy()
+### fire()
+### green_fire()
+### pink_fire()
+### orange_fire()
+### black_fire()
+### hex_fire()
+### rgba()
+### sepia()
+### invert()
+### blur_image()
+### oil_paint()
+### charcoal()
+### emboss()
+### add_toaster()
+### add_gotham()
+### add_kelvin()
+### add_lomo()
+### add_nashville()
+### edge_detect()
+### shade()
+### double_channel()
+### make_circled()
+### is_youtube()
+### youtube_search()
+### youtube_search_process()
+### youtube_channel_search()
+### youtube_related()
+### youtube_play()
+### youtube_content_details()
+### youtube_duration()
+### youtube_views()
+### youtube_likes()
+### youtube_detailer()
+### youtube_chan_byname()
+### youtube_chan_byvideo()
+### youtube_quality()
+### youtube_thumbs()
+### is_youtube_hd()
+### get_youtube_id()
+### conv_youtube_time()
+### youtube_channel()
+### youtube_channel_process()
+### youtube_cat_vids()
+### dailymotion_search()
+### dailymotion_play()
+### dailymotion_search_process()
+### dailymotion_video_details()
+### vimeo_search()
+### vimeo_search_process()
+### vimeo_process_play()
+### vimeo_play()
+### yahoo_search()
+### yahoo_process_search()
+### valid_yahoo_site()
+### yahoo_valid_dur()
+### yahoo_valid_quality()
+### yahoo_mold_thumb()
+### scld_search()
+### scld_track_details()
+### scld_process_search()
