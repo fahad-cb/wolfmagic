@@ -40,11 +40,12 @@ Array to be dumped out
 False by default, exits right after dumping
 
 Ex:
-	$array = array( 
+
+    $array = array( 
                 'Apple' => 'steve_jobs', 
                'tunepk' => 'arslan_hassan',
                'windows' => 'bill_gates' );
-	pex( $array, true );
+    pex( $array, true );
 
 ### is_video()
 Check if provided URL or path is a video. If video, returns video extension else returns false
