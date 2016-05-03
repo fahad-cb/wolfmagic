@@ -354,7 +354,8 @@ Checks if provided link is audio. If audio, returns audio format else returns fa
 { boolean } { false by default. if set to true, displays operation messages }
 
 Ex:
-    $path = 'sample.mp4';
+
+    $path = 'sample.mp3';
     is_audio( $path, true );
 
 ### got_ffmpeg()
