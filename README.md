@@ -30,235 +30,235 @@ Ex:
     $out = true;
     cmd( $cmd, $out );
 
-pex()
+### pex()
 Pretty print an array
 
-$array
+`$array`
 Array to be dumped out
 
-$exit 
+`$exit `
 False by default, exits right after dumping
 
 Ex:
-$array = array( 
+	$array = array( 
                 'Apple' => 'steve_jobs', 
                'tunepk' => 'arslan_hassan',
                'windows' => 'bill_gates' );
-pex( $array, true );
+	pex( $array, true );
 
-is_video()
+### is_video()
 Check if provided URL or path is a video. If video, returns video extension else returns false
 
-$path
+`$path`
 { string } { video link or path }
 
-$msg
+`$msg`
 { boolean } { false by default. if set to true, displays operation messages }
 
 Ex:
 $path = '/var/www/html/sample.html';
 is_video( $path, true );
 
-is_audio()
+### is_audio()
 Checks if provided link is audio. If audio, returns audio format else returns false
 
-$url
+`$url`
 { string } { link / path to audio }
 
-$msg
+`$msg`
 { boolean } { false by default. if set to true, displays operation messages }
 
 Ex:
-$path = 'sample.mp4';
-is_audio( $path, true );
+	$path = 'sample.mp4';
+	is_audio( $path, true );
 
-got_ffmpeg()
+### got_ffmpeg()
 Check if FFMPEG is installed on server
 
-$path 
+`$path `
 Specify direct path to ffmpeg
 
-$msg
+`$msg`
 { boolean } { false by default. shows errors if true }
 
 Ex:
-got_ffmpeg( false, true );
+	got_ffmpeg( false, true );
 
-get_any_video()
+### get_any_video()
 Download any video from internet using YouTube-dl
 
-$url
+`$url`
 { string } { link to video to download }
 
-$output_path
+`$output_path`
 { string } { directory where to save file }
 
-$read_data 
+`$read_data `
 { boolean } { false by default. Shows output if true }
 
-$msg 
+`$msg` 
 { boolean } { false by default. Shows errors }
 
 Ex:
-$url = 'test.mp4';
-$output_path = __DIR__;
-get_any_video( $url, $output_path, false, true );
+	$url = 'test.mp4';
+	$output_path = __DIR__;
+	get_any_video( $url, $output_path, false, true );
 
-is_photo()
+### is_photo()
 Check if  a filepath or URL is a photo or not
 
-$filepath
+`$filepath`
 { string } { path to file to check }
 
-$msg 
+`$msg` 
 { boolean } { shows errors if true }
 
 Ex:
-$filepath = 'main.jpg';
-is_photo( $filepath, true );
+	$filepath = 'main.jpg';
+	is_photo( $filepath, true );
 
-is_type()
+### is_type()
 Checks if a provided file matches provided extension
 
-$filepath
+`$filepath`
 { string } { path or link to file }
 
-$ext 
+`$ext `
 { string } { file extension to match against }
 
 Ex:
-$filepath = 'main.py';
-is_photo( $filepath, 'py' );
+	$filepath = 'main.py';
+	is_photo( $filepath, 'py' );
 
-count_files()
+### count_files()
 Counts file with certain extension in given directory
 
-$path
+`$path`
 { string } { path of directory with files to count }
 
-$ext 
+`$ext` 
 { string } { extension to count files }
 
 Ex:
-$path = __DIR__;
-$ext = 'php';
-count_files( $path, $ext );
+	$path = __DIR__;
+	$ext = 'php';
+	count_files( $path, $ext );
 
-perm_check()
+### perm_check()
 Checks if a directory has permissions
 
-$filepath 
+`$filepath` 
 { string } { file to check }
 
 Ex:
 $filepath = __DIR__.'/wolf.png';
 perm_check( $filepath );
 
-force_perm()
+### force_perm()
 Checks if a file has certain permissions, if not forcefully adds given permissions
 
-$path
+`$path`
 { string } { place where file is located }
 
-$permissions 
+`$permissions` 
 { integer } { permissions to check and force }
 
-$msg 
+`$msg`
 { boolean } { shows error messages }
 
 
 Ex:
-$path = __DIR__.'/files';
-$permissions = '0777';
-force_perm( $path, $permissions, true);
+	$path = __DIR__.'/files';
+	$permissions = '0777';
+	force_perm( $path, $permissions, true);
 
-born_perm()
+### born_perm()
 Creates a new file (php, html, css, text etc) and gives it given permissions
 
-$path
+`$path`
 { string } { path to create file }
 
-$name 
+`$name` 
 { string } { name of file to create }
 
-$content 
+`$content` 
 { mixed } { content to hold inside file }
 
-$permissions 
+`$permissions` 
 { integer } { permissions to give to the file }
 
 Ex:
-$path = __DIR__.'/files';
-$name = 'wolf_magic.me';
-$content = 'it works just fine';
-$permissions = '0666';
-born_perm ( $path, $name, $content, $permissions );
+	$path = __DIR__.'/files';
+	$name = 'wolf_magic.me';
+	$content = 'it works just fine';
+	$permissions = '0666';
+	born_perm ( $path, $name, $content, $permissions );
 
-rand_string()
+### rand_string()
 Generates a random string of provided length
 
-$length 
+`$length` 
 { integer } { 10 by default. length for random string }
 
 Ex:
-rand_string( 5 );
+	rand_string( 5 );
 
-build_log()
+### build_log()
 Builds log file for a video after conversion
 
-$filepath 
+`$filepath` 
 { string } { log file to be created }
 
-$logData 
+`$logData` 
 { mixed } { log data to be stored inside of file }
 
-$oright 
+`$oright` 
 { boolean } { false by default, replace file if true }
 
-$msg 
+`$msg` 
 { boolean } { false by default, prints error messages }
 
 Ex:
-$filepath = 'logdata.txt';
-$logData = 'this is sample log data here';
-$oright = true;
-$msg = true;
-build_log( $filepath, $logData, $oright, $msg );
+	$filepath = 'logdata.txt';
+	$logData = 'this is sample log data here';
+	$oright = true;
+	$msg = true;
+	build_log( $filepath, $logData, $oright, $msg );
 
-get_video_size()
+### get_video_size()
 Gets size of provided video
 
-$video_path
+`$video_path`
 { string } { directory path of video }
 
-$msg 
+`$msg` 
 { boolean } { false by default. if set to true, displays operation messages }
 
 Ex:
-$video_path = 'sample.mp4';
-get_video_size( $video_path, true);
+	$video_path = 'sample.mp4';
+	get_video_size( $video_path, true);
 
-media_detailer()
+### media_detailer()
 Gets all possible details of a media file (video, audio, photo)
 
-$media
+`$media`
 { string } { path to file to extract details of }
 
-$oneOnly 
+`$oneOnly` 
 { boolean } { boolean } { false by default, get one specific detail }
 
-$json 
+`$json` 
 { boolean } { false by default, returns json data }
 
- $msg 
+ `$msg `
 { boolean } { false by default, prints error messages }
 
 Ex:
-$media = 'test.mp4'l;
-$oneOnly = false;
-$json = false;
-$msg = true;
-media_detailer( $media, $oneOnly, $json, $msg );
+	$media = 'test.mp4'l;
+	$oneOnly = false;
+	$json = false;
+	$msg = true;
+	media_detailer( $media, $oneOnly, $json, $msg );
 
 Ex 2 [ get duration only ]:
 $media = 'test.mp4'l;
@@ -277,14 +277,14 @@ bit_rate = bitrate of media file
 created = creation date of media file (not all files have this info built in)
 codec_name = codec name of media file
 
- can_convert()
+### can_convert()
 Check what is max resolution possible conversion for a video
 
-$height 
+`$height` 
 { integer } { Height of video to be checked }
 
 Ex:
-can_convert(510);
+	can_convert(510);
 
 convert_video()
 Convert a video from one format to another
