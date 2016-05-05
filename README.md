@@ -1717,14 +1717,23 @@ Adds text to an image
 
 Possible options are:
 { string } { `photo_path` } { path of photo to add text to } {required}
+
 { string } { `output` } { path of edited photo to save } {required}
+
 { mixed } { `text` } { text to be added to image } {required}
+
 { string } { `color` } { white by default, color of text }
+
 { integer } { `font_size` } { 20 by default, font size of text }
+
 { integer } { `fromtop` } { 50 by default, text padding from top }
+
 { integer } { `fromleft` } { by default, text padding from left }
+
 { string } { `font` } { Arial by default, font of text, make sure server has that font installed }
+
 { string } { `bg` } { empty by default, background color of text }
+
 { mixed } { `extra` } { empty by default, any extra command parameters to run }
 
 Ex:
@@ -1743,10 +1752,15 @@ $params
 
 Possible options are:
 { string } { `output` } { path of edited photo to save } {required}
+
 { mixed } { `text` } { text to be added to image } {required}
+
 { string } { `color` } { white by default, color of text }
+
 { integer } { `font_size` } { 20 by default, font size of text }
+
 { string } { `font` } { Arial by default, font of text, make sure server has that font installed }
+
 { mixed } { `extra` } { empty by default, any extra command parameters to run }
 
 Ex:
