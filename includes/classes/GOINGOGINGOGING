@@ -1,0 +1,1359 @@
+### throw_thumb()
+Generates a thumb of video at given position
+
+`$video_path`
+{ string } { path to video to get thumb from }
+
+`$thumb_path `
+{ string } { path of thumb to be saved }
+
+`$position `
+{ string } { point to capture screenshot at e.g '00:00:02' }
+
+`$size `
+{ string } { false by default, size of thumb }
+
+`$msg `
+{ boolean } { false by default, prints error messages }
+
+Ex:
+
+    $video_path = 'sample.mp4';
+    $thumb_path = 'thumb.png';
+    $position = '00:00:02';
+    throw_thumb($video_path, $thumb_path, $position, false, true);
+
+### xSecThumbs()
+Generates a thumb from video after each given seconds
+
+`$video_path `
+{ string } { path to video to get thumb from }
+
+`$thumbs_dir `
+{ string } { directory to save thumbs in }
+
+`$prefix `
+{ mixed } { prefix to add in thumb name }
+
+`$xsec`
+{ integer } { seconds to generate thumb after }
+
+`$ext `
+{ string } { png by default, exentsion of thumbs }
+
+`$size `
+{ string } { false by default, size of generated thumbs }
+
+`$msg `
+{ boolean } { false by default, prints error messages }
+
+Ex:
+
+    $video_path = 'sample.mp4';
+    $thumbs_dir = __DIR__;
+    $prefix = 'thumb_';
+    $xsec = 10;
+    $ext = 'png';
+    xSecThumbs($video_path, $thumbs_dir, $prefix, $xsec, $ext, false, false);
+
+### xThumbs()
+Generates given number of thumbs by automatically calculating video duration
+
+`$video_path `
+{ string } { path to video to get thumb from }
+
+`$thumbs_dir `
+{ string } { directory to save thumbs in }
+
+`$prefix `
+{ mixed } { prefix to add in thumb name }
+
+`$thumbs `
+{ integer } { 5 by default, number of thumbs to generate from video }
+
+`$msg `
+{ boolean } { false by default, prints error messages }
+
+Ex:
+
+    $video_path = 'sample.mp4';
+    $thumbs_dir = __DIR__;
+    $prefix = 'thumb_';
+    $thumbs = 8;
+    xThumbs($video_path, $thumbs_dir, $prefix, $thumbs);
+
+### flip()
+Flip a video in vertical or horizental way
+
+`$video_path `
+{ string } { path of video to be flipped }
+
+`$output_path `
+{ string } { path of flipped video to save }
+
+`$mode `
+{ string } { v by default, direction to flip video } { options: v,h }
+
+`$msg `
+{ boolean } { false by default, displays messages }
+
+Ex:
+
+    $video_path = 'sample.mp4';
+    $output_path = 'done.mp4';
+    $mode = 'v';
+    flip($video_path, $output_path, $mode);
+
+### flip_horizental()
+Flip a video horizontally
+
+`$video_path `
+{ string } { path of video to be flipped }
+
+`$output_path `
+{ string } { path of flipped video to save }
+
+Ex:
+
+    $video_path = 'sample.mp4';
+    $output_path = 'done.mp4';
+    flip_horizental($video_path, $output_path)
+
+### flip_vertical()
+Flip a video vertically 
+
+`$video_path `
+{ string } { path of video to be flipped }
+
+`$output_path `
+{ string } { path of flipped video to save }
+
+Ex:
+
+    $video_path = 'sample.mp4';
+    $output_path = 'done.mp4';
+    flip_vertical($video_path, $output_path)
+
+### flip_both()
+Flip a video both vertically and horizentally and create separate output files
+
+`$video_path `
+{ string } { path of video to be flipped }
+
+`$output_dir `
+{ string } { directory to save flipped videos }
+
+`$ext `
+{ string } { mp4 by default, extension of output video }
+
+Ex:
+
+    $video_path = 'sample.mp4';
+    $output_dir = __DIR__;
+    flip_both($video_path, $output_dir);
+
+### grayscale()
+Add grayscale effect (make black & white) to a video
+
+`$video_path `
+{ string } { path of video to be flipped }
+
+`$output_path `
+{ string } { path of flipped video to save }
+
+Ex:
+
+    $video_path = 'sample.mp4';
+    $output_path = 'gray.mp4';
+    grayscale($video_path, $output_path);
+
+### grayscale_at()
+Add grayscale effect at one or multiple points in video
+
+`$video_path `
+{ string } { path of video to be flipped }
+
+`$output_path `
+{ string } { path of flipped video to save }
+
+`$grey_points `
+{ array } { points to add greyscale effect to }
+
+Ex:
+
+    $video_path = 'sample.mp4';
+    $output_path = 'grayed.mp4';
+    $grey_points = array('5,10', '20,25', '30,33');
+    grayscale_at($video_path, $output_path, $grey_points);
+
+### split_screen()
+Show two videos side by side in one video
+
+`$vid1 `
+{ string } { path to first video }
+
+`$vid2 `
+{ string } { path to second video }
+
+`$output_path `
+{ string } { path to output video to be saved }
+
+Ex:
+
+    $vid1 = 'hello.mp4';
+    $vid2 = 'test.mp4';
+    $output_path = 'split_screen.mp4';
+    split_screen($vid1, $vid2, $output_path)
+
+### speedup_video()
+Increases playback speed of video
+
+`$video_path `
+{ string } { Video to increase speed of }
+
+`$output_path `
+{ string } { $output_path } { path of output video to save }
+
+`$increase `
+{ integer } { number to increase speed, points between 0 and 1 }
+
+Ex:
+
+    $video_path = 'sample.mp4';
+    $output_path = 'fast.mp4';
+    speedup_video($video_path, $output_path);
+
+### slowdown_video()
+Decrease playback speed of video
+
+`$video_path `
+{ string } { Video to decrease speed of }
+
+`$output_path `
+{ string } { $output_path } { path of output video to save }
+
+`$increase `
+{ integer } { number to decrease speed, points between 0 and 2 }
+
+Ex:
+
+    $video_path = 'sample.mp4';
+    $output_path = 'slow.mp4';
+    slowdown_video($video_path, $output_path);
+
+### video_speed()
+Changes playback speed of video
+
+`$video_path `
+{ string } { Video to change speed of }
+
+`$output_path `
+{ string } { $output_path } { path of output video to save }\
+
+`$mode `
+{ string } { i by default, i to increase and d to decrease }
+
+Ex:
+
+    $video_path = 'sample.mp4';
+    $output_path = 'speed.mp4';
+    video_speed($video_path, $output_path, 'i');
+
+### add_watermark()
+Adds water to a video at given position
+
+`$video_path `
+{ string } { Video to add watermark to }
+
+`$output_path `
+{ $output_path } { path of output video to save }
+
+`$img `
+{ string } { watermark image to be added }
+
+`$position `
+{ string } { position to add watermark  @ options { tl, tr }}
+
+`$msg `
+{ boolean } { false by default, displays messages }
+
+Ex:
+    $video_path = 'sample.mp4';
+    $output_path = 'watermark.mp4';
+    $img = 'watermark.png';
+    $position = 'tr'; // top right
+    add_watermark($video_path, $output_path, $img, $position);
+
+### watermark_topleft()
+Adds watermark at top left corner of video
+
+`$video_path `
+{ string } { Video to add watermark to }
+
+`$output_path `
+{ $output_path } { path of output video to save }
+
+`$img `
+{ string } { watermark image to be added }
+
+Ex:
+
+    $video_path = 'sample.mp4';
+    $output_path = 'watermark.mp4';
+    $img = 'watermark.png';
+    watermark_topleft($video_path, $output_path, $img);
+
+### watermark_topright()
+Adds watermark at top right corner of video
+
+`$video_path `
+{ string } { Video to add watermark to }
+
+`$output_path `
+{ $output_path } { path of output video to save }
+
+`$img `
+{ string } { watermark image to be added }
+
+Ex:
+
+    $video_path = 'sample.mp4';
+    $output_path = 'watermark.mp4';
+    $img = 'watermark.png';
+    watermark_topright($video_path, $output_path, $img);
+
+### watermark_bottomleft()
+Adds watermark at bottom left corner of video
+
+`$video_path `
+{ string } { Video to add watermark to }
+
+`$output_path `
+{ $output_path } { path of output video to save }
+
+`$img `
+{ string } { watermark image to be added }
+
+Ex:
+
+    $video_path = 'sample.mp4';
+    $output_path = 'watermark.mp4';
+    $img = 'watermark.png';
+    watermark_bottomleft($video_path, $output_path, $img);
+
+### watermark_bottomright()
+Adds watermark at bottom right corner of video
+
+`$video_path `
+{ string } { Video to add watermark to }
+
+`$output_path `
+{ $output_path } { path of output video to save }
+
+`$img `
+{ string } { watermark image to be added }
+
+Ex:
+
+    $video_path = 'sample.mp4';
+    $output_path = 'watermark.mp4';
+    $img = 'watermark.png';
+    watermark_bottomright($video_path, $output_path, $img);
+
+### watermark_center()
+Adds watermark at center of video
+
+`$video_path `
+{ string } { Video to add watermark to }
+
+`$output_path `
+{ $output_path } { path of output video to save }
+
+`$img `
+{ string } { watermark image to be added }
+
+Ex:
+
+    $video_path = 'sample.mp4';
+    $output_path = 'watermark.mp4';
+    $img = 'watermark.png';
+    watermark_center($video_path, $output_path, $img);
+
+### mute_at()
+Mutes a video at a given position
+
+`$video_path `
+{ string } { Video to mute at certain point }
+
+`$output_path `
+{ string } { $output_path } { path of output video to save }
+
+`$mute_points `
+{ array } { points to mute video at eg. 10,20} 
+
+`$msg `
+{ boolean } { false by default, displays messages }
+
+Ex:
+
+    $video_path = 'sample.mp4';
+    $output_path = 'muted.mp4';
+    $mute_points = array('10,13', '20,25', '30,33');
+    mute_at($video_path, $output_path, $mute_points);
+
+### add_preroll()
+Add preroll before a video
+
+`$video_path `
+{ string } { Video to mute at certain point }
+
+`$output_path `
+{ string } { path of output video to save }
+
+`$preroll_path`
+{ string } { path of preroll to be added }
+
+`$msg`
+{ boolean } { false by default, displays messages }
+
+Ex:
+
+    $video_path = 'sample.mp4';
+    $output_path = 'prerolled.mp4';
+    $preroll_path = 'pre.mp4';
+    add_preroll($video_path, $output_path, $preroll_path);
+
+### add_midroll()
+Add midroll to a video
+
+`$video_path `
+{ string } { Video to mute at certain point }
+
+`$output_path `
+{ string } { path of output video to save }
+
+`$midroll_path`
+{ string } { path of midroll to be added }
+
+`$msg`
+{ boolean } { false by default, displays messages }
+
+Ex:
+
+    $video_path = 'sample.mp4';
+    $output_path = 'prerolled.mp4';
+    $midroll_path = 'mid.mp4';
+    add_midroll($video_path, $output_path, $midroll_path);
+
+### add_postroll()
+Add preroll before a video
+
+`$video_path `
+{ string } { Video to mute at certain point }
+
+`$output_path `
+{ string } { path of output video to save }
+
+`$postroll_path`
+{ string } { path of postroll to be added }
+
+`$msg`
+{ boolean } { false by default, displays messages }
+
+Ex:
+
+    $video_path = 'sample.mp4';
+    $output_path = 'prerolled.mp4';
+    $postroll_path = 'post.mp4';
+    add_postroll($video_path, $output_path, $postroll_path);
+
+### add_postpre_roll()
+Add preroll and postroll in a video
+
+`$video_path `
+{ string } { Video to add post and pre roll to }
+
+`$output_path `
+{ string } { $output_path } { path of output video to save }
+
+`$preroll_path `
+{ string } { path of preroll to be added }
+
+ `$postroll_path `
+{ string } { path of postroll to be added }
+
+Ex:
+
+    $video_path = 'main.mp4';
+    $output_path = 'out.mp4';
+    $preroll_path = 'pre.mp4';
+    $postroll_path = 'post.mp4';
+    add_postpre_roll($video_path, $output_path, $preroll_path, $postroll_path)
+
+### add_allrolls()
+Adds post, mid and preroll to a video
+
+`$video_path `
+{ string } { Video to add post and pre roll to }
+
+`$output_path `
+{ string } { $output_path } { path of output video to save }
+
+`$preroll_path `
+{ string } { path of preroll to be added }
+
+`$midroll_path`
+{ string } { path of midroll to be added }
+
+ `$postroll_path `
+{ string } { path of postroll to be added }
+
+Ex:
+
+    $video_path = 'main.mp4';
+    $output_path = 'out.mp4';
+    $preroll_path = 'pre.mp4';
+    $midroll_path = 'mid.mp4';
+    $postroll_path = 'post.mp4';
+    add_allrolls($video_path, $output_path, $preroll_path, $midroll_path, $postroll_path)
+
+### reverse_video()
+Converts a video so that it plays in reverse
+
+`$video_path `
+{ string } { path to video to be reversed }
+
+`$output_path `
+{ string } { path of ouput to be saved }
+
+`$audio_reverse `
+{ string } { fasle by default, reverse audio }
+
+Ex:
+
+    $video_path = 'main.mp4';
+    $output_path = 'out.mp4';
+    reverse_video($video_path, $output_path);
+
+### multi_vreverse()
+Converts multiple videos so that they all play in reverse
+
+`$videos_array`
+{ array } { array of video paths }
+
+`$output_dir `
+{ string } { directory where to save files }
+
+`$audio_reverse `
+{ string } { fasle by default, reverse audio }
+
+`$format `
+{ string } { mp4 by default, output format of videos }
+
+Ex:
+
+    $videos_array = array('test.mp4','main.mp4','small.mp4');
+    $output_dir = __DIR__;
+    multi_vreverse($videos_array, $output_dir);
+
+### grid_four()
+Display 4 videos in one video as grid
+
+`$videos `
+{ array } { paths to 4 videos, all videos need to be of same resoloution }
+
+`$output_path `
+{ string } { path to save video }
+
+`$width `
+{ integer } { 1280 by default, width to give to output video }
+
+`$height `
+{ integer } { 720 by default, height to give to output video }
+
+Ex:
+
+    $videos = array(
+                            'small.mp4',
+                            'test.mp4',
+                            'main.mp4',
+                            'gray.mp4' 
+                       );
+    $output_path = 'grid.mp4';
+    grid_four($videos, $output_path)
+
+### extract_waveform()
+Extracts waveform from video
+
+`$video_path `
+{ string } { video to extract waveform from }
+
+`$output_img `
+{ string } { path to save waveform }
+
+`$imgsize `
+{ string } { size of output image }
+
+Ex:
+
+    $video_path = 'small.mp4';
+    $output_img = 'wave.png';
+    $imgsize = '1280x240';
+    extract_waveform($video_path, $output_img, $imgsize)
+
+### hardcode_subtitles()
+Burn subtitles to video
+
+`$video_path `
+{ string } { path to video to add subtitles to }
+
+`$output_path `
+{ string } { path of ouput to be saved }
+
+`$sub_file `
+{ string } { path to subtitles file to be burned to video }
+
+Ex:
+
+    $video_path = 'main.mp4';
+    $output_path = 'subburned.mp4';
+    $sub_file = 'main.srt';
+    hardcode_subtitles($video_path, $output_path, $sub_file)
+
+### audiox_merge()
+Extract audio from video and merge audio with another audio
+
+`$video_path `
+{ string } { path to video to extract audio from }
+
+`$audio `
+{ string } { path of already available audio }
+
+`$output_path `
+{ string } { path of ouput to be saved }
+
+Ex:
+
+    $video_path = 'main.mp4'; 
+    $audio_path = 'main.mp3';
+    $output_path = 'xmerged.mp3';
+    audiox_merge($video, $audio, $output_path)
+
+### convert_mp4()
+Convert a video to mp4
+
+`$video_path `
+{ string } { path to video to convert }
+
+`$output_path `
+{ string } { directory path to save output file in }
+
+`$msg `
+{ boolean } { false by default, displays messages }
+
+Ex:
+
+    $video_path = 'main.mov';
+    $output_path = __DIR__;
+    convert_mp4($video_path, $out_path);
+
+### convert_mov()
+Convert a video to mov
+
+`$video_path `
+{ string } { path to video to convert }
+
+`$output_path `
+{ string } { directory path to save output file in }
+
+`$msg `
+{ boolean } { false by default, displays messages }
+
+Ex:
+
+    $video_path = 'main.mp4';
+    $output_path = __DIR__;
+    convert_mov($video_path, $out_path);
+
+### convert_wmv()
+Convert a video to wmv
+
+`$video_path `
+{ string } { path to video to convert }
+
+`$output_path `
+{ string } { directory path to save output file in }
+
+`$msg `
+{ boolean } { false by default, displays messages }
+
+Ex:
+
+    $video_path = 'main.mov';
+    $output_path = __DIR__;
+    convert_mp4($video_path, $out_path);
+
+### conv_iconia()
+
+Converts a video for Accer Iconia Tab, ASUS Transformer TF101 & Transformer Prime TF201
+
+`$video_path `
+{ string } { path to video to convert }
+
+`$output_path `
+{ string } { path of ouput to be saved }
+
+`$output_format `
+{ string } { format of video to be converted }
+
+`$msg `
+{ boolean } { false by default, displays error messages }
+
+Ex:
+
+    $video_path = 'main.mov';
+    $output_path = __DIR__;
+    $output_format = 'mp4';
+    convert_mp4($video_path, $out_path);
+    conv_iconia( $video_path, $output_path, $output_format);
+
+### conv_ipad()
+Converts a video for ipad & ipad 2
+
+`$video_path `
+{ string } { path to video to convert }
+
+`$output_path `
+{ string } { path of ouput to be saved }
+
+`$output_format `
+{ string } { format of video to be converted }
+
+`$msg `
+{ boolean } { false by default, displays error messages }
+
+Ex:
+
+    $video_path = 'main.mov';
+    $output_path = __DIR__;
+    $output_format = 'mp4';
+    convert_mp4($video_path, $out_path);
+    conv_ipad( $video_path, $output_path, $output_format);
+
+### conv_ipad3()
+Converts a video for ipad3
+
+`$video_path `
+{ string } { path to video to convert }
+
+`$output_path `
+{ string } { path of ouput to be saved }
+
+`$output_format `
+{ string } { format of video to be converted }
+
+`$msg `
+{ boolean } { false by default, displays error messages }
+
+Ex:
+
+    $video_path = 'main.mov';
+    $output_path = __DIR__;
+    $output_format = 'mp4';
+    convert_mp4($video_path, $out_path);
+    conv_ipad3( $video_path, $output_path, $output_format);
+
+### conv_kindle_fire()
+Converts a video for Amazon Kindle Fire & Barnes & Noble's NOOK
+
+`$video_path `
+{ string } { path to video to convert }
+
+`$output_path `
+{ string } { path of ouput to be saved }
+
+`$output_format `
+{ string } { format of video to be converted }
+
+`$msg `
+{ boolean } { false by default, displays error messages }
+
+Ex:
+
+    $video_path = 'main.mov';
+    $output_path = __DIR__;
+    $output_format = 'mp4';
+    convert_mp4($video_path, $out_path);
+    conv_kindle_fire( $video_path, $output_path, $output_format);
+
+### add_magic()
+Adds specified filter to an image file and is used as primary function for adding various kind of filters on photos
+
+`$photo_path `
+{ string } { photo to be edited }
+
+`$output `
+{ string } { path to save output photo }
+
+`$magic `
+{ string } { filter to add on image }
+
+`$extra `
+{ string } { false by default, extra paramters for command }
+
+Ex:
+
+    $photo_path = 'main.png';
+    $output = 'edited.png';
+    $magic = 'sepia';
+    $extra = '80%';
+    add_magic($photo_path, $output, $magic, $extra)
+
+### convert_photo()
+Converts a photo from one type to another
+
+`$photo_path `
+{ string } { photo to be edited }
+
+`$output `
+{ string } { path to save output photo }
+
+`$resize`
+{ string } { false by default, size to be given to photo }
+
+Ex:
+
+    $photo_path = 'main.png';
+    $output = 'edited.png';
+    convert_photo($photo_path, $output);
+
+### add_text()
+Adds text to an image
+
+`$params` 
+{ array } { an array with all parameters }
+
+Possible options are:
+{ string } { `photo_path` } { path of photo to add text to } {required}
+{ string } { `output` } { path of edited photo to save } {required}
+{ mixed } { `text` } { text to be added to image } {required}
+{ string } { `color` } { white by default, color of text }
+{ integer } { `font_size` } { 20 by default, font size of text }
+{ integer } { `fromtop` } { 50 by default, text padding from top }
+{ integer } { `fromleft` } { by default, text padding from left }
+{ string } { `font` } { Arial by default, font of text, make sure server has that font installed }
+{ string } { `bg` } { empty by default, background color of text }
+{ mixed } { `extra` } { empty by default, any extra command parameters to run }
+
+Ex:
+
+    $params = array()
+    $params['photo_path'] = 'main.png';
+    $params['output'] = 'text_on_image.png';
+    $params['text'] = 'hell world';
+    add_text($params);
+
+### text_image()
+Creates a new image with specified text
+
+$params 
+{ array } { an array with all parameters }
+
+Possible options are:
+{ string } { `output` } { path of edited photo to save } {required}
+{ mixed } { `text` } { text to be added to image } {required}
+{ string } { `color` } { white by default, color of text }
+{ integer } { `font_size` } { 20 by default, font size of text }
+{ string } { `font` } { Arial by default, font of text, make sure server has that font installed }
+{ mixed } { `extra` } { empty by default, any extra command parameters to run }
+
+Ex:
+
+    $params = array()
+    $params['output'] = 'text_image.png';
+    $params['text'] = 'hell world';
+    text_image($params);
+
+### rotate_photo()
+Rotates a photo to specified degrees
+
+`$photo_path `
+{ string } { path of photo to be rotated }
+
+`$output `
+{ string } { path to save output photo }
+
+`$rotate `
+{ integer } { 45 by default, degress to rotate }
+
+Ex:
+
+    $photo_path = 'main.png';
+    $output = 'edited.png';
+    $rotate = 90;
+    rotate_photo($photo_path, $output, $rotate);
+
+### flip_photo()
+Flips a photo in vertical or horizental way
+
+`$photo_path `
+{ string } { path of photo to be flipped }
+
+`$output `
+{ string } { path to save output photo }
+
+`$flipto `
+{ string } { h by default, diection to flip in }
+
+Ex:
+
+    $photo_path = 'main.png';
+    $output = 'edited.png';
+    $flipto = 'v';
+    flip_photo($photo_path, $output);
+
+### flip_photo_vertical()
+Flips a photo vertically
+
+`$photo_path `
+{ string } { path of photo to be flipped }
+
+`$output `
+{ string } { path to save output photo }
+
+Ex:
+
+    $photo_path = 'main.png';
+    $output = 'edited.png';
+    flip_photo_vertical($photo_path, $output)
+
+### flip_photo_horizental()
+Flips a photo horizentally
+
+`$photo_path `
+{ string } { path of photo to be flipped }
+
+`$output `
+{ string } { path to save output photo }
+
+
+Ex:
+
+    $photo_path = 'main.png';
+    $output = 'edited.png';
+    flip_photo_horizental($photo_path, $output)
+
+### grayscale_photo()
+Adds grayscale effect to a photo
+
+`$photo_path `
+{ string } { path of photo to be grayscaled }
+
+`$output `
+{ string } { path to save output photo }
+
+`$unlink`
+{ boolean } { false by default, deletes original file}
+
+Ex:
+
+    $photo_path = 'main.png';
+    $output = 'edited.png';
+    grayscale_photo($photo_path, $output);
+
+### navy()
+Adds navy effect to a photo
+
+`$photo_path `
+{ string } { path of photo to be made navy}
+
+`$output `
+{ string } { path to save output photo }
+
+Ex:
+
+    $photo_path = 'main.png';
+    $output = 'edited.png';
+    navy($photo_path, $output)
+
+### fire()
+Adds fire effect to photo in given color
+
+`$photo_path `
+{ string } { path of photo to add fire to }
+
+`$output `
+{ string } { path to save output photo }
+
+`$color`
+{ stirng } { yellow by default, color of fire effect }
+
+Ex:
+
+    $photo_path = 'main.png';
+    $output = 'edited.png';
+    fire($photo_path, $output);
+
+### green_fire()
+Adds green fire effect to photo
+
+`$photo_path `
+{ string } { path of photo to add fire to }
+
+`$output `
+{ string } { path to save output photo }
+
+Ex:
+
+    $photo_path = 'main.png';
+    $output = 'edited.png';
+    green_fire($photo_path, $output)
+
+### pink_fire()
+Adds pink fire effect to photo
+
+`$photo_path `
+{ string } { path of photo to add fire to }
+
+`$output `
+{ string } { path to save output photo }
+
+Ex:
+
+    $photo_path = 'main.png';
+    $output = 'edited.png';
+    pink_fire($photo_path, $output)
+
+### orange_fire()
+Adds orange fire effect to photo
+
+`$photo_path `
+{ string } { path of photo to add fire to }
+
+`$output `
+{ string } { path to save output photo }
+
+Ex:
+
+    $photo_path = 'main.png';
+    $output = 'edited.png';
+    orange_fire($photo_path, $output)
+
+### black_fire()
+Adds black fire effect to photo
+
+`$photo_path `
+{ string } { path of photo to add fire to }
+
+`$output `
+{ string } { path to save output photo }
+
+Ex:
+
+    $photo_path = 'main.png';
+    $output = 'edited.png';
+    black_fire($photo_path, $output)
+
+### hex_fire()
+Adds hex code fire effect to photo
+
+`$photo_path `
+{ string } { path of photo to add fire to }
+
+`$output `
+{ string } { path to save output photo }
+
+Ex:
+
+    $photo_path = 'main.png';
+    $output = 'edited.png';
+    hex_fire($photo_path, $output, $hex)
+
+### rgba()
+Adds rgba colors to photo
+
+`$photo_path `
+{ string } { path of photo to add color to }
+
+`$output `
+{ string } { path to save output photo }
+
+`$rgba_code`
+{ string } { rgba code to add color }
+
+Ex:
+
+    $photo_path = 'main.png';
+    $output = 'edited.png';
+    $rgba_code = '0,0,21,12';
+    rgba($photo_path, $output, $rgba_code);
+
+### sepia()
+Adds sepia effect to photo
+
+`$photo_path `
+{ string } { path of photo to add sepia to }
+
+`$output `
+{ string } { path to save output photo }
+
+`$tone`
+{ string } { 80 by default, tone of sepia effect }
+
+Ex:
+
+    $photo_path = 'main.png';
+    $output = 'edited.png';
+    sepia($photo_path, $output, $tone = '80%')
+
+### invert()
+Invert an image
+
+`$photo_path `
+{ string } { path of photo to be edited }
+
+`$output `
+{ string } { path to save output photo }
+
+Ex:
+
+    $photo_path = 'main.png';
+    $output = 'edited.png';
+    invert($photo_path, $output)
+
+### blur_image()
+Blurs an image
+
+`$photo_path `
+{ string } { path of photo to be edited }
+
+`$output `
+{ string } { path to save output photo }
+
+`$border_color`
+{ string } { white by default, color of border }
+
+`$border`
+{ string } { 20x10 by default, size of border }
+
+`$blurness`
+{ string }  { 5x3 by default, blurness of photo }
+
+Ex:
+
+    $photo_path = 'main.png';
+    $output = 'edited.png';
+    blur_image($photo_path, $output);
+
+### oil_paint()
+Adds oil paint effect to photo
+
+`$photo_path`
+{ string } { path of photo to be flipped }
+
+`$output`
+{ string } { path to save output photo }
+
+`$oil`
+{ string } { amount of oil to be added }
+
+Ex:
+
+    $photo_path = 'main.png';
+    $output = 'edited.png';
+    oil_paint($photo_path, $output, $oil)
+
+### charcoal()
+Adds charcoal to a photo
+
+`$photo_path `
+{ string } { path of photo to be edited }
+
+`$output `
+{ string } { path to save output photo }
+
+`$charcoal`
+{ string } { amount of charcoal to be added }
+
+Ex:
+
+    $photo_path = 'main.png';
+    $output = 'edited.png';
+    $charcoal = 'tobedone';
+    charcoal($photo_path, $output, $charcoal)
+
+### emboss()
+Adds emboss effect to a photo
+
+`$photo_path `
+{ string } { path of photo to be edited }
+
+`$output `
+{ string } { path to save output photo }
+
+`$emboss`
+{ string } { ebossness to add }
+
+Ex:
+
+    $photo_path = 'main.png';
+    $output = 'edited.png';
+    $emboss = 'tobedone';
+    emboss($photo_path, $output, $emboss)
+
+### add_toaster()
+Adds toaster effect to an image
+
+`$photo_path `
+{ string } { path of photo to be edited }
+
+`$output `
+{ string } { path to save output photo }
+
+Ex:
+
+    $photo_path = 'main.png';
+    $output = 'edited.png';
+    add_toaster($photo_path, $output)
+
+### add_gotham()
+Adds gotham effect to a photo
+
+`$photo_path `
+{ string } { path of photo to be edited }
+
+`$output `
+{ string } { path to save output photo }
+
+
+Ex:
+
+    $photo_path = 'main.png';
+    $output = 'edited.png';
+    add_gotham($photo_path, $output)
+
+### add_kelvin()
+Adds Kelvin effect to a photo
+
+`$photo_path `
+{ string } { path of photo to be edited }
+
+`$output `
+{ string } { path to save output photo }
+
+Ex:
+
+    $photo_path = 'main.png';
+    $output = 'edited.png';
+    add_kelvin($photo_path, $output)
+
+### add_lomo()
+Adds lomo effect to a photo
+
+`$photo_path `
+{ string } { path of photo to be edited }
+
+`$output `
+{ string } { path to save output photo }
+
+Ex:
+
+    $photo_path = 'main.png';
+    $output = 'edited.png';
+    add_lomo($photo_path, $output) 
+
+### add_nashville()
+Adds nashville effect to a photo
+
+`$photo_path `
+{ string } { path of photo to be edited }
+
+`$output `
+{ string } { path to save output photo }
+
+Ex:
+
+    $photo_path = 'main.png';
+    $output = 'edited.png';
+    add_nashville($photo_path, $output)
+
+### edge_detect()
+Detects edges of a photo
+
+`$photo_path `
+{ string } { path of photo to be edited }
+
+`$output `
+{ string } { path to save output photo }
+
+`$edge`
+{ string } { 1 by default, strictness of edge }
+
+Ex:
+
+    $photo_path = 'main.png';
+    $output = 'edited.png';
+    $edge = 3;
+    edge_detect($photo_path, $output, $edge)
+
+### shade()
+Adds shade to a photo
+
+`$photo_path `
+{ string } { path of photo to be edited }
+
+`$output `
+{ string } { path to save output photo }
+
+`$shade`
+{ string } { shade to add to photo }
+
+Ex:
+
+    $photo_path = 'main.png';
+    $output = 'edited.png';
+    $shade = '0x45';
+    shade($photo_path, $output, $shade)
+
+### double_channel()
+Double channels photo
+
+`$photo_path `
+{ string } { path of photo to be edited }
+
+`$second_photo`
+{ string } { second photo }
+
+`$output `
+{ string } { path to save output photo }
+
+`$channel `
+{ string } { red by default, channel to add to photo }
+
+`$size `
+{ string } { 100% by default, size of output photo }
+
+Ex:
+
+    $photo_path = 'main.png';
+    $second_photo = 'new.png';
+    $output = 'edited.png';
+    double_channel($photo_path, $second_photo, $output);
+
+### make_circled()
+Makes an image circled
+
+`$photo_path `
+{ string } { path of photo to be edited }
+
+`$output `
+{ string } { path to save output photo }
+
+`$circle`
+{ string } { 64,64,64,0 by default, position and size of circl }
+
+Ex:
+    $photo_path = 'main.png';
+    $output = 'edited.png';
+    make_circled($photo_path, $output);
+
