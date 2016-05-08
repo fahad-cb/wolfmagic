@@ -601,5 +601,29 @@
 			}
 		}
 
+		function video_exists($video) {
+			if (strlen($video) <= 12) {
+				$ytid = $video;
+			} else {
+				$ytid = $this->get_youtube_id($video);
+			}
+
+			if (!empty($ytid)) {
+				$hit = 'https://www.googleapis.com/youtube/v3/videos';
+				$id = 'id='.$ytid;
+				$part = 'part=snippet';
+				$key = 'key='.YOUTUBE_API_KEY;
+				$request = $hit.'?'.$id.'&'.$part.'&'.$key;
+				$raw_data = file_get_contents($request);
+				$readable = json_decode($raw_data,true);
+				$snippet = $readable['items'][0]['snippet'];
+				if (is_array($snippet)) {
+					return $ytid;
+				} else {
+					return false;
+				}
+			}
+		}
+
 	}
 ?>
