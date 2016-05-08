@@ -17,7 +17,7 @@
 			}
 		}
 
-		function download($url, $location = 'default') {
+		function download_item($url, $location = 'default') {
 			global $youtube;
 			if (!empty($url)) {
 				if ($location == 'default') {
@@ -39,7 +39,7 @@
 			if (is_array($array)) {
 				$downloaded = array();
 				foreach ($array as $key => $url) {
-					$fetched = $this->download($url, $location);
+					$fetched = $this->download_item($url, $location);
 					if ($fetched) {
 						$downloaded[] = $fetched;
 					}
