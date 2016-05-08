@@ -7,9 +7,11 @@
 	define('FFMPEG', LIBS_DIR.'/ffmpeg.exe');
 	define('FFPROBE', LIBS_DIR.'/ffprobe.exe');
 	define('MP4BOX', '"C:\Program Files\GPAC\mp4box.exe"');
+	define('YOUTUBEDL', LIBS_DIR.'/youtube-dl.exe');
 
 	require 'classes/helper.class.php';
 	require 'classes/convert.class.php';
+	require 'classes/download.class.php';
 	require 'classes/photo_filt.php';
 	require 'classes/photo.class.php';
 
@@ -21,6 +23,7 @@
 	require 'classes/soundcloud.api.php';
 
 	$wolfMagic = new wolfMagic();
+	$down = new download();
 	$imageWolf = new ImageWolf();
 	$youtube = new youtube();
 	$dailymotion = new dailymotion();
