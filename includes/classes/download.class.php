@@ -1,11 +1,22 @@
 <?php
+
 	/**
 	* 
 	*/
 
 	class download extends HuntHelp
 	{
-		
+
+		/**
+		* Extract json info about a media file using youtube-dl
+		* @param : { string } { $url } { url of a youtube-dl supported website }
+		* @since : 8th May, 2016
+		* @author : Saqib Razzaq
+		* @modified : 8th May, 2016
+		* 
+		* @return : { array } { $data } { media's extracted json data }
+		*/
+
 		function readJson($url) {
 			if (!empty($url)) {
 				$command = YOUTUBEDL.' -j '.$url;
