@@ -5,6 +5,7 @@
 
 	class download extends HuntHelp
 	{
+		
 		function readJson($url) {
 			if (!empty($url)) {
 				$command = YOUTUBEDL.' -j '.$url;
@@ -44,6 +45,18 @@
 						$downloaded[] = $fetched;
 					}
 					return $fetched;
+				}
+			}
+		}
+
+		function direct_url($url) {
+			if (!empty($url)) {
+				$command = YOUTUBEDL.' -g '.$url;
+				$durl = $this->cmd($command);
+				if ($durl) {
+					return rtrim($durl);
+				} else {
+					return false;
 				}
 			}
 		}
