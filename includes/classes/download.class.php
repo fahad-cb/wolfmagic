@@ -34,6 +34,19 @@
 				}
 			}
 		}
+
+		function download_multiple($array, $location)  {
+			if (is_array($array)) {
+				$downloaded = array();
+				foreach ($array as $key => $url) {
+					$fetched = $this->download($url, $location);
+					if ($fetched) {
+						$downloaded[] = $fetched;
+					}
+					return $fetched;
+				}
+			}
+		}
 	}
 		
 ?>
