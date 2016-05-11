@@ -95,5 +95,7 @@ ffmpeg -i small.mp4 -i http://zdenek-malkus.cz/ramecky/ram33.png -filter_complex
 
 	#$imageWolf->text_image($paramsa)
 	#$wolfMagic->audiox_merge($v1, __DIR__.'/black.mp3', $out);
-	$wolfMagic->poster_audio(__DIR__.'/black.mp3', __DIR__.'/punk.jpg', __DIR__.'/punked.mp4');
+	#$wolfMagic->poster_audio(__DIR__.'/black.mp3', __DIR__.'/punk.jpg', __DIR__.'/punked.mp4');
+	#$down->download('https://www.youtube.com/watch?v=vDiETeBC9W8');
+	$youtube->video_exists('Xvbfv378SYo');
 ?>
